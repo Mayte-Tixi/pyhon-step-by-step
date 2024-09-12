@@ -56,5 +56,6 @@ print(lista1)
 
 
 
-#* TUPLAS 
+
+
 
