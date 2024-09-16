@@ -14,4 +14,3 @@ elif(edad>40 and edad>75):
      print('hola muy mayores')              
 else:
     print('la edad ingresada es esta fuera del rango')
-

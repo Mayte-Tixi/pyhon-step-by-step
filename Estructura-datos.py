@@ -31,7 +31,7 @@ conjuto2={1,2,3,4}
 print(conjuto2)
 #funciones para trabajar con los conjuntos
 print(conjuto.union(conjuto2))
-#interseccion para derificar que elementos estan repetidos
+#interseccion para verificar que elementos estan repetidos
 print(conjuto.intersection(conjuto2))
 #inferencia
 print(conjuto.difference(conjuto2))

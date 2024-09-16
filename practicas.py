@@ -29,6 +29,7 @@ print('la posicion impresa de la lista es=',lista[3])
 print('imprimir desde hasta=',lista[0:3])
 print(len(lista))
 #la funcion iundex indica  la posicion que ocupa un objeto dentro de una lista
+
 print(lista.index('soy muy inteligente yo puedo'))
 # la funcion inset agrega datos a la lista seleccuionando la posicion al lado izquierdo
 #append ingresa valores a la lista al final, tambien se puede agregar sub listas dentro de la lista que tenemos creado.
@@ -44,6 +45,7 @@ lista.remove('leon')
 print(lista)
 print('la palabra zorro dentro de la lista se repite=',lista.count('zorro'))
 #funcion que ordena los elementos de una lista del final hacia adelante
+
 lista1=[1,3,4,5,9,2,6]
 #lista de menor a meyor
 lista1.sort()
@@ -52,9 +54,6 @@ lista1.sort(reverse=True)
 
 #funcion que eliminar un dato de la lista 
 lista1.pop(0)
-print(lista1)
-
-
 
 
 
