@@ -27,6 +27,8 @@ for i in lista1:
         
 print("normal",impar)        
       
+      
+      
     
 
      

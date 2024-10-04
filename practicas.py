@@ -54,7 +54,3 @@ lista1.sort(reverse=True)
 
 #funcion que eliminar un dato de la lista 
 lista1.pop(0)
-
-
-
-
