@@ -1,0 +1,111 @@
+$(function() {
+    if ($('#attempts').length) {
+        const $table = $('#attempts');
+        const $thead = $table.find('thead');
+        const $tbody = $table.find('tbody');
+        const $scrollContainer = $('.no-overflow');
+
+        function addStickyClasses() {
+            const scrollY = Math.max($(window).scrollTop(), $scrollContainer.scrollTop());
+            if (scrollY+60 > 0) {
+                $thead.addClass('sticky-thead').css('top', (scrollY+60)-$table.offset().top );
+            } else {
+                $thead.removeClass('sticky-thead').css('top', '');
+            }
+        }
+        function addStickTheadClasses (){
+            const scrollX =  $scrollContainer.scrollLeft();
+            $thead.find('tr').each(function() {
+                const $row = $(this);
+                const $columnsToStick = $row.find('th').slice(0, 3);
+                if (scrollX > 0) {
+                    $columnsToStick.each(function(index) {
+                        const $column = $(this);
+                        if (index == 0) {
+                            left = 0;
+                        } else if (index == 1) {
+                            left = 38;
+                        } else if (index == 2) {
+                            left = 90;
+                        }
+                        $column.addClass('sticky-column').css('background-color', '#fff');
+                        $column.addClass('sticky-column').css('left', left);
+                    });
+                } else {
+                    $columnsToStick.each(function() {
+                        const $column = $(this);
+                        $column.removeClass('sticky-column').css('left', '');
+                        $column.removeClass('sticky-column').css('background-color', '');
+                    });
+                }
+            });
+        }
+        function addStickTbodyClases() {
+            const scrollX =  $scrollContainer.scrollLeft();
+            $tbody.find('tr').each(function() {
+                const $row = $(this);
+                if ($row.attr('class') && $row.attr('class').includes('gradedattempt')) {
+                    const $columnsToStick = $row.find('td').slice(0, 3);
+                    if (scrollX > 0) {
+                        $columnsToStick.each(function(index) {
+                            const $column = $(this);
+                            if (index == 0) {
+                                left = 0;
+                            } else if (index == 1) {
+                                left = 38;
+                            } else if (index == 2) {
+                                left = 90;
+                            }
+                            $column.addClass('sticky-column').css('left', left);
+                        });
+                    } else {
+                        $columnsToStick.each(function() {
+                            const $column = $(this);
+                            $column.removeClass('sticky-column').css('left', '');
+                        });
+                    }
+                }else {
+                    const $columnsToStick2 = $row.find('td').slice(0, 3);
+                    if (scrollX > 0) {
+                        $columnsToStick2.each(function(index) {
+                            const $column = $(this);
+                            if (index == 0) {
+                                left = 0;
+                                $column.addClass('sticky-column2').css('background-color', '#fff');
+                            } else if (index == 1) {
+                                left = 38;
+                            } else if (index == 2) {
+                                left = 90;
+                            }
+                            $column.addClass('sticky-column2').css('left', left);
+                        });
+                    } else {
+                        $columnsToStick2.each(function() {
+                            const $column = $(this);
+                            $column.removeClass('sticky-column2').css('left', '');
+                            $column.removeClass('sticky-column2').css('background-color', '');
+                        });
+                    }
+                }
+            });
+        }
+
+        $(window).scroll(function() {
+            addStickyClasses();
+            addStickTbodyClases();
+            addStickTheadClasses();
+        });
+
+        $scrollContainer.scroll(function() {
+            addStickyClasses();
+            addStickTbodyClases();
+            addStickTheadClasses();
+        });
+
+        $(window).resize(function() {
+            addStickyClasses();
+            addStickTbodyClases();
+            addStickTheadClasses();
+        });
+    }
+});

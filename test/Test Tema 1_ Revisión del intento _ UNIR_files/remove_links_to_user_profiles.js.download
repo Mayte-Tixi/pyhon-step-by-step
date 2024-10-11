@@ -1,0 +1,5 @@
+$(document).ready(function() {
+    if ($('#participants').length) {
+        $("#participants tbody tr th.cell.c0 a").removeAttr("href");
+    }
+});

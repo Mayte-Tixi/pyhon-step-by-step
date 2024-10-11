@@ -1,0 +1,472 @@
+﻿#unir-bot-webchat {
+  height: calc(100% - 110px);
+  width: 100%;
+  border: 1px solid #ececec;
+}
+
+#unir-bot-webchat ul {
+  margin-left: 1em;
+}
+
+#unir-bot-webchat li {
+  list-style: disc;
+  margin: 1em 0em;
+}
+
+#unir-bot-webchat p {
+  line-height: 1.5em;
+}
+
+#unir-bot-webchat .react-film__filmstrip li {
+  list-style: none;
+}
+
+@keyframes attentionJump {
+  35% {
+    transform: translateY(0);
+    /* Posición inicial */
+  }
+
+  45% {
+    transform: translateY(-5px);
+    /* Posición más alta */
+  }
+
+  55% {
+    transform: translateY(0);
+    /* Volver a la posición inicial */
+  }
+
+  65% {
+    transform: translateY(-5px);
+    /* Posición más alta */
+  }
+
+  75% {
+    transform: translateY(0);
+    /* Volver a la posición inicial */
+  }
+}
+
+@keyframes hoverAnimation {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+#unir-bot-webchat-button {
+  /*Positioning stuff*/
+  position: absolute;
+  background-image: url("https://stubot2pro.blob.core.windows.net/bot-files/assets/UnirLogo_Icon.svg");
+  right: 0;
+  right: 5px !important;
+  bottom: 0;
+  bottom: 10px !important;
+  z-index: 9999;
+  /*Box model stuff*/
+  width: 60px;
+  height: 60px;
+  border: none;
+  border: none;
+  background-color: transparent;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 60px;
+  background-position-x: 0px;
+  background-position-y: 0px;
+  border-radius: 50%;
+  /*Miscellaneous*/
+  cursor: pointer;
+  cursor: pointer;
+
+  animation: attentionJump 2s ease-in-out infinite;
+
+  pointer-events: auto;
+}
+
+#unir-bot-webchat-button:hover {
+  animation: hoverAnimation 0.5s ease forwards;
+}
+
+#unir-bot-webchat-button:not(:hover) {
+  animation: attentionJump 2s ease-in-out infinite;
+}
+
+#unir-bot-webchat-button-minimize {
+  font-size: 15px;
+  font-weight: bolder;
+  color: black;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  text-align: right;
+  float: right;
+  margin-right: 10px;
+}
+
+#unir-bot-webchat-button-minimize::before {
+  content: "\2014";
+  /* CSS code for the `emdash` character */
+}
+
+#unir-bot-webchat-button-user-settings {
+  margin-right: 10px;
+  display: inline-block;
+  height: 20px;
+  font-weight: bold;
+  width: 20px;
+  font-size: 20px;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  background: #edeaea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1em;
+  padding: 10px;
+}
+
+#unir-bot-webchat-container {
+  right: 10px;
+  bottom: 5px;
+  width: 450px;
+  height: 550px;
+  z-index: 9999;
+  position: fixed;
+  font-size: 15px;
+  pointer-events: none;
+}
+
+@media only screen and (max-width: 450px) {
+  #unir-bot-webchat-container {
+    width: 98%;
+    height: 98%;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+#unir-bot-user-settings-container {
+  height: 376px;
+  width: 316px;
+  overflow: auto;
+  background: white;
+  z-index: 1000;
+  padding: 10px;
+  position: absolute;
+  box-sizing: border-box;
+  display: none;
+  top: 81px;
+  right: 2px;
+  font-family: Calibri, "Helvetica Neue", Arial, "sans-serif";
+}
+
+.termsContainer__info {
+  margin-top: 24px;
+}
+
+.webchat__basic-transcript__scrollable::-webkit-scrollbar {
+  width: 8px;
+}
+
+.webchat__basic-transcript__scrollable::-webkit-scrollbar-thumb {
+  background-color: grey;
+  border-radius: 30px;
+  z-index: 9999;
+}
+
+.webchat__basic-transcript__scrollable {
+  scrollbar-width: thin;
+  scrollbar-color: grey;
+}
+
+#unir-bot-webchat-container .resizer--n {
+  width: calc(100% - 10px);
+  border: 10px solid transparent;
+  position: absolute;
+  background-color: transparent;
+  top: -10px;
+  left: -10px;
+  cursor: ns-resize;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#unir-bot-webchat-container .resizer--s {
+  width: calc(100% - 10px);
+  border: 10px solid transparent;
+  position: absolute;
+  background-color: transparent;
+  bottom: -10px;
+  left: -10px;
+  cursor: ns-resize;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#unir-bot-webchat-container .resizer--w {
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  background-color: transparent;
+  border: 10px solid transparent;
+  bottom: -10px;
+  cursor: ew-resize;
+  height: calc(100% - 10px);
+  left: -10px;
+  position: absolute;
+  right: auto;
+  user-select: none;
+  width: 0;
+}
+
+#unir-bot-webchat-container .resizer--e {
+  height: calc(100% - 10px);
+  border: 10px solid transparent;
+  position: absolute;
+  background-color: transparent;
+  bottom: -10px;
+  right: -10px;
+  cursor: ew-resize;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#unir-bot-webchat-container .resizer--nw {
+  height: 5px;
+  width: 5px;
+  border: 5px solid transparent;
+  position: absolute;
+  background-color: transparent;
+  top: -5px;
+  left: -5px;
+  cursor: nwse-resize;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#unir-bot-webchat-container .resizer--ne {
+  height: 5px;
+  width: 5px;
+  border: 5px solid transparent;
+  position: absolute;
+  background-color: transparent;
+  top: -5px;
+  right: -5px;
+  cursor: nesw-resize;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#unir-bot-webchat-container .resizer--sw {
+  height: 5px;
+  width: 5px;
+  border: 5px solid transparent;
+  position: absolute;
+  background-color: transparent;
+  bottom: -5px;
+  left: -5px;
+  cursor: nesw-resize;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#unir-bot-webchat-container .resizer--se {
+  height: 5px;
+  width: 5px;
+  border: 5px solid transparent;
+  position: absolute;
+  background-color: transparent;
+  bottom: -5px;
+  right: -5px;
+  cursor: nwse-resize;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#unir-bot-webchat-holder {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+#unir-bot-webchat-header {
+  background-color: white;
+  height: 65px;
+  width: 100%;
+  display: flex;
+  border: 1px solid #ececec;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  outline: none;
+}
+
+#unir-bot-webchat-header div {
+  background-image: url("https://stubot2pro.blob.core.windows.net/bot-files/assets/UnirLogo_White.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 250px;
+}
+
+#unir-bot-webchat-header div h1 {
+  margin-left: 70px;
+}
+
+#unir-bot-webchat-header.drag {
+  cursor: grab;
+}
+
+.webchat__bubble--from-user {
+  margin-right: -9px;
+}
+
+#unir-bot-webchat-header.dragging {
+  cursor: grabbing;
+}
+
+#unir-bot-webchat-header-disclaimer {
+  font-family: Times New Roman;
+  color: gray;
+  width: 310px;
+  font-size: .75rem;
+  line-height: 1rem;
+  text-align: center;
+}
+
+/*Menu Options*/
+.menuOptions__container {
+  display: none;
+  position: absolute;
+  min-width: 220px;
+  font-family: Calibri, "Helvetica Neue", Arial, "sans-serif";
+  right: 0px;
+  top: 55px;
+  background: white;
+  border: 1px solid #ececec;
+  z-index: 99999999;
+  -webkit-box-shadow: 3px 3px 13px -3px rgba(184, 175, 184, 1);
+  -moz-box-shadow: 3px 3px 13px -3px rgba(184, 175, 184, 1);
+  box-shadow: 3px 3px 13px -3px rgba(184, 175, 184, 1);
+}
+
+.menuOptions__text {
+  font-size: 14px;
+  margin-block-start: auto;
+  margin-block-end: auto;
+}
+
+.menuOptions__option {
+  padding: 6px 12px;
+}
+
+.menuOptions__option:hover {
+  cursor: pointer;
+  background: rgba(211, 207, 207, 1)
+}
+
+#unir-bot-webchat-root {
+  /* None for now */
+}
+
+
+
+/* New changes */
+/*Header*/
+#unir-bot-webchat-header{
+	background: linear-gradient(279.23deg, #4CBAE1 0%, #0053AF 46.5%, #073776 100%);
+	border-radius: 10px 10px 0 0;
+}
+#unir-bot-webchat-header h1 {
+    margin-left: 80px;
+	margin-top: 22px;
+	font-family: Helveica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 1.2rem;
+    color: #fff;
+}
+#unir-bot-webchat-button-minimize{
+	color: #ffffff;
+}
+#unir-bot-webchat-header div{
+	background: none;
+}
+
+#unir-bot-webchat-header div:before {
+	content: "";
+    background: url("https://stubot2pro.blob.core.windows.net/bot-files/assets/UnirLogo_White.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    border-radius: 100%;
+}
+
+/*Burbuja*/
+#unir-bot-webchat .webchat__bubble.webchat__bubble--from-user .webchat__bubble__content{
+	background: #0053AF !important;
+	color: #fff !important;
+}
+
+/*Manos de me gusta*/
+#unir-bot-webchat .webchat__suggested-actions {
+    position: absolute !important;
+    bottom: 88px;
+}
+#unir-bot-webchat .webchat__suggested-actions__carousel .react-film__filmstrip__list{
+	background: #FBFCFF;
+	border: 1px solid var(--Neutrals_ea-Neutral-40, #DCDFEB);
+	border-radius: 30px;
+	padding: 0;
+	margin-left: 0.6em;
+}
+
+#unir-bot-webchat .webchat__suggested-actions__carousel .react-film__filmstrip__list li{
+	margin: 0;
+}
+
+#unir-bot-webchat .webchat__suggested-actions__carousel .react-film__filmstrip__list button.webchat__suggested-action{
+	/* width: 30px; */
+  padding: 10px;
+  height: 30px;
+  border: none;
+  background: transparent;
+}
+#unir-bot-webchat .webchat__suggested-actions__carousel .react-film__filmstrip__list button.webchat__suggested-action img{
+	display: inline-block;
+}
+
+#unir-bot-webchat-button:before{
+	content: "¿En qué podemos ayudarte?";
+	display: block;
+	top: -48px;
+	background: white;
+	/* width: 200px; */
+	position: absolute;
+	left: -160px;
+	padding: 12px 10px;
+	border-radius: 10px;
+	border: 1px solid #ccc;
+	border-bottom-right-radius: 0;
+	color: #666;
+	font-family: Arial, Sans Serif
+}

@@ -1,0 +1,28 @@
+$(document).ready(function() {
+    let h2Element = $('#page-content div[role="main"] h2');
+    // Valida para que no se modifique el camino de migas en los cursos
+    if (!h2Element.hasClass('accesshide')) {
+        if ($('#page-content div[role="main"] h2').text() != ''){
+            let nuevoTexto = $('#page-content div[role="main"] h2:eq(0)').text();
+            $('#page-navbar li:last-child a').text(nuevoTexto);
+            // para que se cambie el camino de migas de actividades por Ennvio de actividades
+            if ($('#page-navbar li:last-child a').text().trim() == nuevoTexto && $('#page-navbar li:nth-last-child(2) a').text().trim() == 'Actividades' || $('#page-navbar li:nth-last-child(2) a').text().trim() == 'Activities'){
+                if ($('#page-navbar li:nth-last-child(2) a').text().trim() == 'Actividades'){
+                    $('#page-navbar li:nth-last-child(2) a').text('Envío de actividades')
+                }
+                if ($('#page-navbar li:nth-last-child(2) a').text().trim() == 'Activities'){
+                    $('#page-navbar li:nth-last-child(2) a').text('Sending activities')
+                }
+            }
+            //El camino de migas de resultado del estudiante se cambie por resultados de actividades
+            if ($('#page-navbar li:last-child a').text().trim() == nuevoTexto && $('#page-navbar li:nth-last-child(3) a').text().trim()  == 'Calificaciones' || $('#page-navbar li:nth-last-child(3) a').text().trim() == 'Grades'){
+                if ($('#page-navbar li:nth-last-child(3) a').text().trim() == 'Grades'){
+                    $('#page-navbar li:last-child a').text('Results of activities');
+                }
+                if ($('#page-navbar li:nth-last-child(3) a').text().trim() == 'Calificaciones'){
+                    $('#page-navbar li:last-child a').text('Resultado de actividades');
+                }
+            }
+        }
+    }
+});
